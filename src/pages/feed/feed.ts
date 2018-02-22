@@ -36,6 +36,9 @@ export class FeedPage {
     qtdComentarios: 234,
     dataHoraComentario: "2h atrás"
   }
+
+  public listaFilme = new Array<any>();
+
   public somarNumeros(num1:number, num2:number):void {
     alert(num1+num2);
   }
@@ -46,7 +49,10 @@ export class FeedPage {
       data=>{
         const responseDataa = (data as any);
         const objRetorno = JSON.parse(responseDataa._body);
-        console.log(objRetorno);
+
+        this.listaFilme = objRetorno.results;
+
+        console.log(this.listaFilme);
       }, error=> {
         console.log(error);
       })
